@@ -28,7 +28,7 @@ import streamlit as st
 
 from llama_index.callbacks import CallbackManager
 from core.callback_manager import StreamlitFunctionsCallbackHandler
-
+import os
 
 class RAGParams(BaseModel):
     """RAG parameters.
@@ -278,7 +278,8 @@ def get_web_agent_tool() -> QueryEngineTool:
 
     # TODO: set metaphor API key
     metaphor_tool = MetaphorToolSpec(
-        api_key=st.secrets.metaphor_key,
+        api_key=st.secrets.metaphor_key
+        api_key = os.getenv('METAPHOR_KEY'),
     )
     metaphor_tool_list = metaphor_tool.to_tool_list()
 
