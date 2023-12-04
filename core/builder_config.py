@@ -10,7 +10,7 @@ from llama_index.llms import OpenAI
 
 # set OpenAI Key - use Streamlit secrets
 open_api_key=os.getenv('OPENAI_API_KEY')
-os.environ["OPENAI_API_KEY"] = open_api_key
+# os.environ["OPENAI_API_KEY"] = open_api_key
 # load LLM
 BUILDER_LLM = OpenAI(model="gpt-4-1106-preview")
 
