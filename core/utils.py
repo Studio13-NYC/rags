@@ -278,8 +278,8 @@ def get_web_agent_tool() -> QueryEngineTool:
 
     # TODO: set metaphor API key
     metaphor_tool = MetaphorToolSpec(
-       # api_key=st.secrets.metaphor_key
-        api_key = os.getenv('METAPHOR_KEY')
+        api_key=st.secrets.metaphor_key
+        #api_key = os.getenv('METAPHOR_KEY')
     )
     metaphor_tool_list = metaphor_tool.to_tool_list()
 
