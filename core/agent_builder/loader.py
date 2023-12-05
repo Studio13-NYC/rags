@@ -14,7 +14,7 @@ from core.utils import (
 from core.agent_builder.registry import AgentCacheRegistry
 from core.agent_builder.base import RAGAgentBuilder, BaseRAGAgentBuilder
 from core.agent_builder.multimodal import MultimodalRAGAgentBuilder
-
+import os
 ####################
 #### META Agent ####
 ####################
@@ -47,7 +47,7 @@ def _get_builder_agent_tools(agent_builder: RAGAgentBuilder) -> List[FunctionToo
     """Get list of builder agent tools to pass to the builder agent."""
     # see if metaphor api key is set, otherwise don't add web tool
     # TODO: refactor this later
-
+    st.secrets.metaphor_key = os.getenv('METAPHOR_KEY')
     if "metaphor_key" in st.secrets:
         fns: List[Callable] = [
             agent_builder.create_system_prompt,
