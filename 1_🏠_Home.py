@@ -29,6 +29,7 @@ st.info(
     "To build a new agent, please make sure that 'Create a new agent' is selected.",
     icon="ℹ️",
 )
+
 if "metaphor_key" in st.secrets:
     st.info("**NOTE**: The ability to add web search is enabled.")
 

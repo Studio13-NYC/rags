@@ -305,8 +305,8 @@ def get_web_agent_tool() -> QueryEngineTool:
 
     # TODO: set metaphor API key
     metaphor_tool = MetaphorToolSpec(
-        #api_key=st.secrets.metaphor_key
-        api_key = os.getenv('METAPHOR_KEY')
+        api_key=st.secrets.metaphor_key
+        #api_key = os.getenv('METAPHOR_KEY')
     )
     metaphor_tool_list = metaphor_tool.to_tool_list()
    
@@ -438,7 +438,8 @@ def construct_mm_agent(
     # first resolve llm and embedding model
     embed_model = resolve_embed_model(rag_params.embed_model)
     # TODO: use OpenAI for now
-    os.environ["OPENAI_API_KEY"] = st.secrets.openai_key
+    st.secrets.openai_key = os.environ["OPENAI_API_KEY"] 
+
     openai_mm_llm = OpenAIMultiModal(model="gpt-4-vision-preview", max_new_tokens=1500)
 
     # first let's index the data with the right parameters
