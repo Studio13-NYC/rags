@@ -78,6 +78,7 @@ def _resolve_llm(llm_str: str) -> LLM:
     # see if there's a prefix
     # - if there isn't, assume it's an OpenAI model
     # - if there is, resolve it
+    
     tokens = llm_str.split(":")
     if len(tokens) == 1:
         os.environ["OPENAI_API_KEY"] = st.secrets.openai_key
